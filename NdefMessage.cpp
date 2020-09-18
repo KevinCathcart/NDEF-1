@@ -146,7 +146,7 @@ void NdefMessage::encode(uint8_t* data)
         _records[i]->encode(data_ptr, i == 0, (i + 1) == _recordCount);
 
         uint16_t encodedSize = _records[i]->getEncodedSize();
-        _offsets[i] = offset + encodedSize - _records[i].getPayloadLength();
+        _offsets[i] = offset + encodedSize - _records[i]->getPayloadLength();
 
         offset += encodedSize;
         data_ptr += encodedSize;
